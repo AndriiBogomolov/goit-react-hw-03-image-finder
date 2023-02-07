@@ -7,10 +7,10 @@ export const Searchbar = ({ onSubmit }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    onSubmit(e.currentTarget.elements.query.value);
-    if (e.currentTarget.elements.query.value === "") {
+    onSubmit(e.currentTarget.elements.query.value.trim());
+    if (e.currentTarget.elements.query.value === " ") {
       Notiflix.Notify.failure('Please, enter your query.');
-      return;
+      return
     }
     e.target.reset();
   };

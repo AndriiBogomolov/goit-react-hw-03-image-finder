@@ -42,7 +42,7 @@ export class App extends Component {
   };
 
   handleSubmit = query => {
-    this.setState({ query, isLoading: true });
+    this.setState({ query, page: 1, images: [] });
   }
 
   renderButtonOrLoader = () => {
@@ -55,6 +55,7 @@ export class App extends Component {
         )
     );
 }
+
 
   render() {
     return (

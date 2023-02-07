@@ -21,10 +21,17 @@ export class Modal extends Component {
             this.props.onClose();
         }
     };
+
+    onCloseByOverlay = e => {
+        if (e.Target === e.currentTarget) {
+            this.props.onClose();
+        }
+    };
+
     render() {
-        const { largeImg, onClose } = this.props;
+        const { largeImg } = this.props;
         return createPortal (
-            <Overlay onClick={onClose}>
+            <Overlay onClick={this.onCloseByOverlay}>
                 <ModalStyles>
                     <img src={largeImg} alt="" />
                 </ModalStyles>
@@ -35,3 +42,21 @@ export class Modal extends Component {
 }
 
 
+//     onCloseByOverlay = e => {
+//         if (e.Target === e.currentTarget) {
+//             this.props.onClose();
+//         }
+//     };
+
+//     render() {
+//         const { largeImg, onClose } = this.props;
+//         return createPortal (
+//             <Overlay onClick={onClose}>
+//                 <ModalStyles>
+//                     <img src={largeImg} alt="" />
+//                 </ModalStyles>
+//             </Overlay>,
+//             modalRef
+//         );
+//     }
+// }
