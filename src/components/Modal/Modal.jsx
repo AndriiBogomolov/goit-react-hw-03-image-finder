@@ -23,7 +23,7 @@ export class Modal extends Component {
     };
 
     onCloseByOverlay = e => {
-        if (e.Target === e.currentTarget) {
+        if (e.target === e.currentTarget) {
             this.props.onClose();
         }
     };
