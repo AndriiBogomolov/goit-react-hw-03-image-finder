@@ -40,23 +40,3 @@ export class Modal extends Component {
         );
     }
 }
-
-
-//     onCloseByOverlay = e => {
-//         if (e.Target === e.currentTarget) {
-//             this.props.onClose();
-//         }
-//     };
-
-//     render() {
-//         const { largeImg, onClose } = this.props;
-//         return createPortal (
-//             <Overlay onClick={onClose}>
-//                 <ModalStyles>
-//                     <img src={largeImg} alt="" />
-//                 </ModalStyles>
-//             </Overlay>,
-//             modalRef
-//         );
-//     }
-// }
