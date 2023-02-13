@@ -1,20 +1,25 @@
 import React from 'react';
 import PropsTypes from 'prop-types';
 import Notiflix from 'notiflix';
-import { SearchbarStyles, SearchForm, SearchFormButton, SearchFormButtonLabel, SearchFormInput } from './Searchbar.styled';
+import {
+  SearchbarStyles,
+  SearchForm,
+  SearchFormButton,
+  SearchFormButtonLabel,
+  SearchFormInput,
+} from './Searchbar.styled';
 
 export const Searchbar = ({ onSubmit }) => {
-
   const handleSubmit = e => {
     e.preventDefault();
-    onSubmit(e.currentTarget.elements.query.value.trim());
-    if (e.currentTarget.elements.query.value === " ") {
+    if (e.currentTarget.elements.query.value.trim() === '') {
       Notiflix.Notify.failure('Please, enter your query.');
-      return
+      return;
     }
+    onSubmit(e.currentTarget.elements.query.value.trim());
     e.target.reset();
   };
-    
+
   return (
     <SearchbarStyles>
       <SearchForm onSubmit={handleSubmit}>
@@ -23,7 +28,7 @@ export const Searchbar = ({ onSubmit }) => {
         </SearchFormButton>
 
         <SearchFormInput
-          name='query'
+          name="query"
           type="text"
           autoComplete="off"
           autoFocus
@@ -31,10 +36,9 @@ export const Searchbar = ({ onSubmit }) => {
         />
       </SearchForm>
     </SearchbarStyles>
-  )
+  );
 };
 
-Searchbar.propsTypes = {
-  onSubmit: PropsTypes.func,
+Searchbar.PropsTypes = {
+  onSubmit: PropsTypes.func.isRequired,
 };
-
