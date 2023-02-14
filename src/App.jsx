@@ -47,15 +47,12 @@ export class App extends Component {
 
   render() {
     const { error, images, isLoading, totalImgs } = this.state;
-    const totalPage = images.lenght / totalImgs;
+    const totalPage = images.length / totalImgs;
     return (
       <Container>
         <Searchbar onSubmit={this.handleSubmit} />
         <ImageGallery images={images} />
         {isLoading && <Loader />}
-        {images.length !== 0 && images.length < totalImgs && (
-          <Button onClick={this.handleLoadMore} />
-        )}
 
         {totalPage < 1 && <Button onClick={this.handleLoadMore} />}
 
